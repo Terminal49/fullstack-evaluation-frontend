@@ -3,9 +3,19 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="main.css">
+  <script src="https://cdn.tailwindcss.com"></script>
   <script src="bundle.js" async></script>
 </head>
 <body>
-  <h1 data-controller="example"></h1>
+  <body class="bg-gray-100">
+    <div class="max-w-7xl mx-auto py-12 sm:px-6 lg:px-8">
+      <h1 data-controller="example"></h1>
+      <div>
+        <label for="bl" class="block text-sm font-medium text-gray-700">Search BL</label>
+        <div class="mt-1 relative rounded-md shadow-sm">
+          <input type="text" name="bl" id="bl" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-2 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="">
+        </div>
+      </div>
+    </div>
 </body>
 </html>
