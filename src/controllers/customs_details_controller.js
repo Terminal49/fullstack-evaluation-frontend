@@ -7,19 +7,23 @@ export default class extends Controller {
     const entry_id = (new URL(document.location)).searchParams.get('id')
     this.load(entry_id)
   }
-  clear() {
-    this.constructor.targets.forEach(target => {
-      this[target+'Target'].textContent = ''
-    });
-  }
   load(entry_id) {
     fetch(`http://localhost:8000/entry/${entry_id}`)
       .then(response => response.json())
       .then(response => {
-        this.constructor.targets.forEach(target => {
-          console.log(response[toSnakeCase(target)])
-          this[target+'Target'].textContent = response[toSnakeCase(target)];
-        });
-      })
+        if (response.bl == undefined) {
+          this.render_not_found();
+        } else {
+          this.render_results(response)
+        }
+      });
+  }
+  render_not_found() {
+    this.element.innerHTML = '<p class="p-5">404 – not found</p>';
+  }
+  render_results(response) {
+    this.constructor.targets.forEach(target => {
+      this[target+'Target'].textContent = response[toSnakeCase(target)];
+    });
   }
 }

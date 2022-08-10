@@ -2,20 +2,22 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="main.css">
+  <title>T49 Customs Entry Search</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="bundle.js" async></script>
 </head>
-<body>
-  <body class="bg-gray-100">
-    <div class="max-w-7xl mx-auto py-12 sm:px-6 lg:px-8">
-      <h1 data-controller="example"></h1>
-      <div>
-        <label for="bl" class="block text-sm font-medium text-gray-700">Search BL</label>
-        <div class="mt-1 relative rounded-md shadow-sm">
-          <input type="text" name="bl" id="bl" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-2 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="">
+<body class="bg-gray-100">
+  <div class="max-w-7xl mx-auto py-12 sm:px-6 lg:px-8">
+    <div class="bg-white shadow sm:rounded-lg">
+      <div class="p-8">
+        <div data-controller="search"  data-loader-url-value="/" class="input-group mb-4">
+          <!--  relative flex flex-wrap items-stretch w-full -->
+          <input data-search-target="Query" type="search" class="form-control relative  px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search" aria-label="Search" aria-describedby="button-addon3">
+          <!-- flex-auto min-w-0 block w-full -->
+          <button data-action="search#go" class="btn inline-block px-6 py-2 border-2 border-blue-600 text-blue-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out" type="button" id="button-addon3">Search</button>
         </div>
       </div>
     </div>
+  </div>
 </body>
 </html>
